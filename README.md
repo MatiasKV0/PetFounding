@@ -1,5 +1,4 @@
-#PET FOUNDING
-
+# PET FOUNDING
 **Propuesta Técnica de Desarrollo de Software**
 **Proyecto:** Plataforma Web **PET FOUNDING**
 
@@ -21,8 +20,7 @@ Para garantizar **escalabilidad, modularidad y alto rendimiento**, se define la 
 * **Framework:** React (con Vite)
 * **Gestión de estado:** Redux
 * **Ruteo:** React Router
-* **Estilos:** Tailwind CSS o Material-UI
-* **Cliente HTTP:** Axios
+* **Estilos:** Tailwind CSS
 
 **Justificación:**
 React junto con Vite permite un desarrollo ágil y moderno. Redux resulta clave para manejar estados complejos como sesión de usuario, carrito de donaciones y filtros de búsqueda de manera predecible.
