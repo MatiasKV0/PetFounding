@@ -8,7 +8,7 @@ export default function Layout() {
       <h1>PetFounding</h1>
       <nav>
         <a href="/">Inicio</a> |{" "}
-        <a href="/catalogo">Mascotas</a> |{" "}
+        <a href="/mascotas">Mascotas</a> |{" "}
         <a href="/refugios">Refugios</a> |{" "}
         <a href="/login">Iniciar Sesión</a>
       </nav>

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"; 
 
 export default function Refugios() {
 
@@ -7,8 +8,7 @@ export default function Refugios() {
   return (
     <>
       <h1>Refugios</h1>
-      <button onClick={() => navigate("/refugios/1")}>Refugio 1</button>
-      <button onClick={() => navigate("/refugios/2")}>Refugio 2</button>
+      
     </>
   )
 }
