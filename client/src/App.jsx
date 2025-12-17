@@ -1,15 +1,20 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+//views
 import Home from './views/Home.jsx';
-import PetCatalog from './features/mascotas/CatPets.jsx';
-import PetDetail from './features/mascotas/PetDetail.jsx';
-import DonationForm from './features/donaciones/DonationForm.jsx';
-import UserProfile from './features/auth/Profile.jsx';
-import AdminDashboard from './features/admin/Dashboard.jsx';
-import PetABM from './features/admin/PetABM.jsx';
-import AdoptionQueue from './features/admin/AdoptionQueue.jsx';
-import Login from './features/auth/Login.jsx';
+import Login from './views/Login.jsx';
+import UserProfile from './views/Profile.jsx';
+import CatalogoMascotas from './views/mascotas/CatalogoMascotas.jsx';
+import DetalleMascota from './views/mascotas/DetalleMascota.jsx';
+import Refugios from './views/refugio/Refugios.jsx';
+import DetalleRefugio from './views/refugio/DetalleRefugio.jsx';
 
+//admin views
+import AdminDashboard from './views/admin/Dashboard.jsx';
+import PetABM from './views/admin/PetABM.jsx';
+import AdoptionQueue from './views/admin/AdoptionQueue.jsx';
+
+//components
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
 import Layout from './components/Layout.jsx'; 
@@ -21,9 +26,10 @@ const router = createBrowserRouter([
     children: [
       // 1. RUTAS PÚBLICAS
       { index: true, element: <Home /> },
-      { path: 'catalogo', element: <PetCatalog /> },
-      { path: 'mascotas/:id', element: <PetDetail /> },
-      { path: 'donar', element: <DonationForm /> },
+      { path: 'catalogo', element: <CatalogoMascotas /> },
+      { path: 'mascotas/:id', element: <DetalleMascota /> },
+      { path: 'refugios', element: <Refugios /> },
+      { path: 'refugios/:id', element: <DetalleRefugio /> },
       { path: 'login', element: <Login /> },
       
       // 2. RUTAS PRIVADAS

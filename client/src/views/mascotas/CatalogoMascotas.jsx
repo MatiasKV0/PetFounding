@@ -1,8 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useGetMascotasQuery } from '../../api/mascotasApi';
-import { setFilter } from './mascotasSlice';
+import { setFilter } from '../../features/mascotas/mascotasSlice';
 
-export default function CatPets() {
+export default function CatalogoMascotas() {
   const filters = useSelector((state) => state.mascotas.activeFilters);
   const dispatch = useDispatch();
 
