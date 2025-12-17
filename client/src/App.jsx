@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     children: [
       // 1. RUTAS PÚBLICAS
       { index: true, element: <Home /> },
-      { path: 'catalogo', element: <CatalogoMascotas /> },
+      { path: 'mascotas', element: <CatalogoMascotas /> },
       { path: 'mascotas/:id', element: <DetalleMascota /> },
       { path: 'refugios', element: <Refugios /> },
       { path: 'refugios/:id', element: <DetalleRefugio /> },
