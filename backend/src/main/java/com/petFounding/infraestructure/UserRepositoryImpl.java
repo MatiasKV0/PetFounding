@@ -19,48 +19,61 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public User guardar(User usuario) {
-
-        return null;
+        sessionFactory.getCurrentSession().save(usuario);
+        return usuario;  // ✅ CORRECTO
     }
 
     @Override
     public User modificar(User usuario) {
-
-        return null;
+        sessionFactory.getCurrentSession().update(usuario);
+        return usuario;  // ✅ CORRECTO
     }
 
     @Override
     public void eliminar(Long id) {
-
+        User usuario = buscarPorId(id);
+        sessionFactory.getCurrentSession().delete(usuario);
     }
 
     @Override
     public User buscarPorId(Long id) {
-
-        return null;
+        return sessionFactory.getCurrentSession().get(User.class, id);
     }
 
     @Override
     public User buscarPorEmail(String email) {
-
-        return null;
+        String hql = "FROM User WHERE email = :email";
+        return (User) sessionFactory.getCurrentSession()
+                .createQuery(hql)
+                .setParameter("email", email)
+                .uniqueResult();
     }
 
     @Override
     public User buscarPorEmailYPassword(String email, String password) {
-
-        return null;
+        String hql = "FROM User WHERE email = :email AND password = :password";
+        return (User) sessionFactory.getCurrentSession()
+                .createQuery(hql)
+                .setParameter("email", email)
+                .setParameter("password", password)
+                .uniqueResult();
     }
 
     @Override
     public List<User> buscarTodos() {
-
-        return null;
+        String hql = "FROM User";
+        return sessionFactory.getCurrentSession()
+                .createQuery(hql, User.class)
+                .list();
     }
 
     @Override
     public Boolean existePorEmail(String email) {
-
-        return null;
+        String hql = "SELECT COUNT(*) FROM User WHERE email = :email";
+        Long count = (Long) sessionFactory.getCurrentSession()
+                .createQuery(hql)
+                .setParameter("email", email)
+                .uniqueResult();
+        return count > 0;
     }
 }

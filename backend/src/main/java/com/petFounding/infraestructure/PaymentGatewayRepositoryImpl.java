@@ -1,4 +1,4 @@
-package com.petFounding.infrastructure;
+package com.petFounding.infraestructure;
 
 import com.petFounding.entity.Donation;
 import com.petFounding.entity.PaymentGateway;
@@ -17,7 +17,7 @@ public class PaymentGatewayRepositoryImpl implements PaymentGatewayRepository {
     public PaymentGatewayRepositoryImpl(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
-
+//TODO: Por el momento no hacer este!!!!!!
     @Override
     public PaymentGateway guardar(PaymentGateway pasarela) {
         return null;
