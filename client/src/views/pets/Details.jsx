@@ -1,4 +1,4 @@
-export default function DetalleMascota() {
+export default function Details() {
   return (
     <div>DetalleMascota</div>
   )

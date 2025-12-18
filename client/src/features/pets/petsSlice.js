@@ -2,13 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   activeFilters: {
+    especie: 'todos',
+    edad: 'cualquiera',
     ubicacion: '',
     page: 1,
   },
 };
 
-export const refugiosSlice = createSlice({
-  name: 'refugios',
+export const petsSlice = createSlice({
+  name: 'pets',
   initialState,
   reducers: {
     setFilter: (state, action) => {
@@ -21,5 +23,5 @@ export const refugiosSlice = createSlice({
   },
 });
 
-export const { setFilter, setPage } = refugiosSlice.actions;
-export default refugiosSlice.reducer;
+export const { setFilter, setPage } = petsSlice.actions;
+export default petsSlice.reducer;

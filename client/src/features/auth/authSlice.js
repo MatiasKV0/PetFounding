@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     isAuthenticated: false,
-    role: 'guest', // roles: 'guest', 'user', 'admin'
+    role: 'guest', // roles: 'guest', 'user', 'admin', 'shelter'
     user: null,
 };
 

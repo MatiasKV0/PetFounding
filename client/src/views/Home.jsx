@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
     <main>
-      <h1 className="text-3xl font-bold mb-4">Bienvenido a PetFounding</h1>
+      <h1>Bienvenido a PetFounding</h1>
       <p className="mb-4">
         Tu plataforma confiable para encontrar mascotas adorables en busca de un hogar amoroso.
       </p>

@@ -2,18 +2,18 @@ import { configureStore } from '@reduxjs/toolkit';
 import { apiSlice } from '../api/apiSlice';
 
 import authReducer from '../features/auth/authSlice';
-import adopcionesReducer from '../features/adopciones/adopcionesSlice';
-import donacionesReducer from '../features/donaciones/donacionesSlice';
-import mascotasReducer from '../features/mascotas/mascotasSlice';
-import refugiosReducer from '../features/refugios/refugiosSlice';
+import adoptionReducer from '../features/adoption/adoptionSlice';
+import donationReducer from '../features/donation/donationSlice';
+import petsReducer from '../features/pets/petsSlice';
+import shelterReducer from '../features/shelter/shelterSlice';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
-    adopciones: adopcionesReducer,
-    donaciones: donacionesReducer,
-    mascotas: mascotasReducer,
-    refugios: refugiosReducer,
+    adoption: adoptionReducer,
+    donation: donationReducer,
+    pets: petsReducer,
+    shelter: shelterReducer,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
