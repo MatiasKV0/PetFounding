@@ -39,22 +39,22 @@ public class DonationServiceImpl implements DonationService {
     public Donation confirmar(Long id) {
         // TODO:logica d confirmacion
         // 1 buscar por id
-
+        Donation donacion = donationRepository.buscarPorId(id);
         // 2 cheque el pago verificado con la pasarela d pago
         // 3 set el estado de la donacion
         // 4 en el controller mandar msj de confirmacion
-        return null;
+        return donacion;
     }
 
     @Override
     public Donation cancelar(Long id) {
         // TODO: cancelar/eliminar
         // 1 buscamos por id
-
+        Donation donacion = donationRepository.buscarPorId(id);
         // 2 cheuqeamos q exirrta
         // 3 y endria haber un reembolso pero ni idea
         // 4 set estado d donacion
-        return null;
+        return donacion;
     }
 
     @Override
@@ -64,7 +64,6 @@ public class DonationServiceImpl implements DonationService {
         if (donacion == null) {
             throw new RuntimeException("Donación no encontrada");
         }
-
         return donacion;
     }
 
@@ -89,9 +88,11 @@ public class DonationServiceImpl implements DonationService {
         // 1 buscamos por id o buscamos un array de las donciones y llamamos a los numeros para sumar
         List<Donation> donaciones = donationRepository.buscarPorRefugio(refugio);
         // 2 sumar todos
-
+        BigDecimal total = BigDecimal.ZERO;
+        for (Donation donacion : donaciones) {
+            total = total.add(donacion.getMonto());
         }
-        // 3return resultado;
-
+        // 3 return resultado
+        return total;
     }
 }
