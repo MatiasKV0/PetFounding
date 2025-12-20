@@ -1,15 +1,15 @@
 package com.petFounding.repository;
 
 import com.petFounding.entity.Shelter;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import java.util.Optional;
 
-public interface ShelterRepository {
-    Shelter guardar(Shelter refugio);
-    Shelter modificar(Shelter refugio);
-    void eliminar(Long id);
-    Shelter buscarPorId(Long id);
-    Shelter buscarPorNombre(String nombreRefugio);
-    List<Shelter> buscarTodos();
-    Boolean existePorNombre(String nombreRefugio);
+@Repository
+public interface ShelterRepository extends JpaRepository<Shelter, Long> {
+
+    Optional<Shelter> findByNombreRefugio(String nombreRefugio);
+
+    boolean existsByNombreRefugio(String nombreRefugio);
 }

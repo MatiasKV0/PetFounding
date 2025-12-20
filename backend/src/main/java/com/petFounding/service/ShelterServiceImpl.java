@@ -16,132 +16,89 @@ import java.util.List;
 @Transactional
 public class ShelterServiceImpl implements ShelterService {
 
-    private ShelterRepository shelterRepository;
-    private PetRepository petRepository;
+    private final ShelterRepository shelterRepository;
+    private final PetRepository petRepository;
 
     @Autowired
-    public ShelterServiceImpl(ShelterRepository shelterRepository, PetRepository petRepository) {
+    public ShelterServiceImpl(ShelterRepository shelterRepository,
+                              PetRepository petRepository) {
         this.shelterRepository = shelterRepository;
         this.petRepository = petRepository;
     }
 
     @Override
     public Shelter crearRefugio(Shelter refugio) {
-//        if (shelterRepository.existePorNombre(refugio.getNombreRefugio())) {
-//            throw new RuntimeException("El nombre del refugio ya existe");
-//        }
-        return shelterRepository.guardar(refugio);
+        return shelterRepository.save(refugio);
     }
 
     @Override
     public Shelter actualizarRefugio(Long id, Shelter refugio) {
-        Shelter refugioExistente = shelterRepository.buscarPorId(id);
+        Shelter existente = shelterRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Refugio no encontrado"));
 
-//        if (refugioExistente == null) {
-//            throw new RuntimeException("Refugio no encontrado");
-//        }
+        existente.setNombreRefugio(refugio.getNombreRefugio());
+        existente.setDireccion(refugio.getDireccion());
 
-        refugioExistente.setNombreRefugio(refugio.getNombreRefugio());
-        refugioExistente.setDireccion(refugio.getDireccion());
-
-        return shelterRepository.modificar(refugioExistente);
+        return shelterRepository.save(existente);
     }
 
     @Override
     public void eliminarRefugio(Long id) {
-        Shelter refugio = shelterRepository.buscarPorId(id);
-
-//        if (refugio == null) {
-//            throw new RuntimeException("Refugio no encontrado");
-//        }
-
-        shelterRepository.eliminar(id);
+        shelterRepository.deleteById(id);
     }
 
     @Override
     public Shelter obtenerRefugioPorId(Long id) {
-        Shelter refugio = shelterRepository.buscarPorId(id);
-
-//        if (refugio == null) {
-//            throw new RuntimeException("Refugio no encontrado");
-//        }
-
-        return refugio;
+        return shelterRepository.findById(id).orElse(null);
     }
 
     @Override
     public Shelter obtenerRefugioPorNombre(String nombre) {
-        Shelter refugio = shelterRepository.buscarPorNombre(nombre);
-
-//        if (refugio == null) {
-//            throw new RuntimeException("Refugio no encontrado");
-//        }
-
-        return refugio;
+        return shelterRepository.findByNombreRefugio(nombre).orElse(null);
     }
 
     @Override
     public List<Shelter> obtenerTodosLosRefugios() {
-        return shelterRepository.buscarTodos();
+        return shelterRepository.findAll();
     }
 
     @Override
     public Pet crearMascota(Pet mascota, Long idRefugio) {
-        Shelter refugio = shelterRepository.buscarPorId(idRefugio);
-
-//        if (refugio == null) {
-//            throw new RuntimeException("Refugio no encontrado");
-//        }
+        Shelter refugio = shelterRepository.findById(idRefugio)
+                .orElseThrow(() -> new RuntimeException("Refugio no encontrado"));
 
         mascota.setRefugio(refugio);
-        return petRepository.guardar(mascota);
+        return petRepository.save(mascota);
     }
 
     @Override
     public Pet actualizarMascota(Long idMascota, Pet mascota) {
-        Pet mascotaExistente = petRepository.buscarPorId(idMascota);
+        Pet existente = petRepository.findById(idMascota)
+                .orElseThrow(() -> new RuntimeException("Mascota no encontrada"));
 
-//        if (mascotaExistente == null) {
-//            throw new RuntimeException("Mascota no encontrada");
-//        }
+        existente.setNombre(mascota.getNombre());
+        existente.setRaza(mascota.getRaza());
+        existente.setEdad(mascota.getEdad());
 
-        mascotaExistente.setNombre(mascota.getNombre());
-        mascotaExistente.setRaza(mascota.getRaza());
-        mascotaExistente.setEdad(mascota.getEdad());
-
-        return petRepository.modificar(mascotaExistente);
+        return petRepository.save(existente);
     }
 
     @Override
     public void eliminarMascota(Long idMascota) {
-        Pet mascota = petRepository.buscarPorId(idMascota);
-
-//        if (mascota == null) {
-//            throw new RuntimeException("Mascota no encontrada");
-//        }
-
-        petRepository.eliminar(idMascota);
+        petRepository.deleteById(idMascota);
     }
 
     @Override
     public List<Pet> gestionarSolicitudes(Long idRefugio) {
-        Shelter refugio = shelterRepository.buscarPorId(idRefugio);
+        Shelter refugio = shelterRepository.findById(idRefugio)
+                .orElseThrow(() -> new RuntimeException("Refugio no encontrado"));
 
-        if (refugio == null) {
-            throw new RuntimeException("Refugio no encontrado");
-        }
-
-        return petRepository.buscarPorRefugio(refugio);
+        return petRepository.findByRefugio(refugio);
     }
 
     @Override
     public void verReportes(Long idRefugio) {
-        Shelter refugio = shelterRepository.buscarPorId(idRefugio);
-
-        if (refugio == null) {
-            throw new RuntimeException("Refugio no encontrado");
-        }
-
-        // Implementar lógica para ver reportes del refugio
+        shelterRepository.findById(idRefugio)
+                .orElseThrow(() -> new RuntimeException("Refugio no encontrado"));
     }
 }

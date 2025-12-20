@@ -52,7 +52,8 @@ public class AdoptionApplicationServiceImpl implements AdoptionApplicationServic
 
         Pet mascota = solicitud.getMascota();
         mascota.setEstadoAdopcion(AdoptionStatus.ADOPTADO);
-        petRepository.modificar(mascota);
+        petRepository.save(mascota);
+
 
         return adoptionApplicationRepository.modificar(solicitud);
     }
