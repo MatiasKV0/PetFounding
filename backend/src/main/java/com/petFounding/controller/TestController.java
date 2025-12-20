@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-public class HomeController {
+public class TestController {
 
     @Autowired
     private com.petFounding.interfacee.ShelterService shelterService;
