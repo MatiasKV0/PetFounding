@@ -23,8 +23,18 @@ export default function Layout() {
       <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-200 shadow-sm">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
        
-          <Link to="/" className="text-2xl font-bold text-blue-600 flex items-center gap-2">
-            <span>🐾</span> PetFounding
+          <Link
+            to="/"
+            className="text-2xl font-bold text-blue-700 flex items-center gap-2"
+          >
+            <span className="flex items-center">
+              <img
+                src="/img/logoo.png"
+                alt="PetFounding logo"
+                className="w-12 h-12"
+              />
+            </span>
+            PetFounding
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
@@ -70,9 +80,7 @@ export default function Layout() {
       </header>
 
       <main className="flex-grow bg-gray-50/50">
-        <div className="container mx-auto px-4 py-8">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
 
       <footer className="bg-white border-t border-gray-200 pt-12 pb-8">
@@ -95,13 +103,31 @@ export default function Layout() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h4 className="font-semibold text-gray-900 mb-2">Contacto</h4>
-              <p className="text-sm text-gray-600 italic">hola@petfounding.com</p>
-              <div className="flex gap-4 mt-2">
-                <span className="cursor-pointer text-gray-400 hover:text-blue-400">Instagram</span>
-                <span className="cursor-pointer text-gray-400 hover:text-blue-400">Facebook</span>
-              </div>
+              <h4 className="font-semibold text-gray-900 mb-2">Desarrolladores</h4>
+              <a
+                href="https://www.linkedin.com/in/camila-lázaro-ávila"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-600 hover:text-blue-500 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                Camila Lázaro Ávila
+              </a>
+              <a
+                href="https://www.linkedin.com/in/matias-nicolas-villan/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-gray-600 hover:text-blue-500 flex items-center gap-2"
+              >
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                </svg>
+                Matías Nicolás Villán
+              </a>
             </div>
+
           </div>
 
           <div className="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
