@@ -42,7 +42,7 @@ function Home() {
   }, [])
 
   return (
-    <div className="w-full bg-gray-100">
+    <div className="w-full bg-gray-200">
       <section className="relative w-full min-h-screen">
         <img
           src="/img/puppy.jpg"
@@ -70,17 +70,18 @@ function Home() {
             </p>
             <Link
               to="/donations"
-              className="inline-block bg-blue-600 text-white px-10 py-4 rounded-full text-lg font-semibold
-                         transition-all duration-300 shadow-2xl font-sans
-                         hover:bg-blue-700 hover:shadow-blue-500/50 hover:scale-110 hover:-translate-y-1"
-            >
+               className="inline-block bg-blue-400 text-white px-10 py-4 rounded-full
+                           text-lg font-semibold shadow-2xl font-sans
+                           transition-all duration-300
+                           hover:bg-blue-300 hover:scale-110 hover:shadow-blue-400/50 hover:-translate-y-1"
+              >
               Conocé cómo colaborar
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50 relative">
+      <section className="py-20 bg-gray-300 relative">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="absolute -top-17 left-4 w-24 h-24 md:w-28 md:h-28 z-10">
@@ -123,13 +124,13 @@ function Home() {
             <p className="text-lg text-gray-700 mb-6 leading-relaxed font-sans">
               Adoptar es más que sumar una mascota a tu hogar: es abrirle la
               puerta a una nueva vida llena de{" "}
-              <strong className="text-blue-600 font-semibold">amor, cuidados y segundas oportunidades</strong>.
+              <strong className="text-orange-600 font-semibold">amor, cuidados y segundas oportunidades</strong>.
             </p>
             <Link
               to="/pets"
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold
+              className="inline-block bg-orange-600 text-white px-8 py-3 rounded-full font-semibold
                          transition-all duration-300 shadow-lg font-sans
-                         hover:bg-blue-700 hover:shadow-2xl hover:scale-110 hover:-translate-y-1"
+                         hover:bg-orange-700 hover:shadow-2xl hover:scale-110 hover:-translate-y-1"
             >
               Enterate cómo
             </Link>
@@ -137,7 +138,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-100 relative">
+      <section className="py-20 bg-gray-200 relative">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div
             ref={visitaTextRef}
@@ -153,13 +154,13 @@ function Home() {
             </h2>
             <p className="text-lg text-gray-700 mb-8 leading-relaxed font-sans">
               Cada visita es una oportunidad para brindar{" "}
-              <strong className="text-blue-600 font-semibold">amor, compañía y alegría</strong>.
+              <strong className="text-orange-600 font-semibold">amor, compañía y alegría</strong>.
             </p>
             <Link
               to="/shelters"
-              className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold
+              className="inline-block bg-orange-600 text-white px-8 py-3 rounded-full font-semibold
                          transition-all duration-300 shadow-lg font-sans
-                         hover:bg-blue-700 hover:shadow-2xl hover:scale-110 hover:-translate-y-1"
+                         hover:bg-orange-700 hover:shadow-2xl hover:scale-110 hover:-translate-y-1"
             >
               Participá de las visitas
             </Link>
@@ -193,10 +194,10 @@ function Home() {
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50 text-gray-900 relative overflow-hidden border-t-2 border-gray-200/50">
+      <section className="py-20 bg-gray-300 text-gray-900 relative overflow-hidden border-t-2 border-gray-200/50">
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-300 rounded-full blur-3xl"></div>
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-300 rounded-full blur-3xl"></div>
+          <div className="absolute top-0 left-0 w-96 h-96 bg-orange-300 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-300 rounded-full blur-3xl"></div>
         </div>
 
         <div className="max-w-5xl mx-auto px-6 relative z-10">
@@ -227,15 +228,16 @@ function Home() {
                 segundas oportunidades.
               </p>
 
-              <Link
-                to="/donations"
-                className="inline-block bg-emerald-600 text-white px-10 py-4 rounded-full
-                           text-lg font-semibold shadow-2xl font-sans
-                           transition-all duration-300
-                           hover:bg-emerald-700 hover:scale-110 hover:shadow-emerald-600/50 hover:-translate-y-1"
-              >
-                Colaborá ahora
-              </Link>
+           <Link
+             to="/donations"
+             className="inline-block bg-blue-400 text-white px-10 py-4 rounded-full
+                        text-lg font-semibold shadow-2xl font-sans
+                        transition-all duration-300
+                        hover:bg-blue-300 hover:scale-110 hover:shadow-blue-400/50 hover:-translate-y-1"
+           >
+             Colaborá ahora
+           </Link>
+
             </div>
           </div>
         </div>
