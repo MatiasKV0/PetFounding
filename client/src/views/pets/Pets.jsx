@@ -11,19 +11,19 @@ const mockPets = [
     tamano: 'PEQUENO',
     esterilizado: true,
     vacunado: true,
-    imagen: '/img/panter.PNG'
+    imagen: '/img/dog5.jpg'
   },
   {
     id: 2,
     nombre: 'Janna',
     raza: 'Caniche',
     edad: 2,
-    descripcion: 'Gata tranquila y cariñosa. Le gusta dormir al sol y recibir mimos. Ideal para departamentos.',
+    descripcion: 'Perrita tranquila y cariñosa. Le gusta dormir al sol y recibir mimos. Ideal para departamentos.',
     sexo: 'HEMBRA',
     tamano: 'PEQUENO',
     esterilizado: true,
     vacunado: true,
-    imagen: '/img/Janna.jpg'
+    imagen: '/img/dog5.webp'
   },
   {
     id: 3,
@@ -35,19 +35,19 @@ const mockPets = [
     tamano: 'GRANDE',
     esterilizado: false,
     vacunado: true,
-    imagen: '/img/bonniee.PNG'
+    imagen: '/img/dog7.png'
   },
   {
     id: 4,
     nombre: 'Mia',
-    raza: 'Siamés',
+    raza: 'Metizo',
     edad: 1,
     descripcion: 'Gatita muy juguetona y curiosa. Le encanta explorar y trepar. Perfecta para hogares activos.',
     sexo: 'HEMBRA',
     tamano: 'PEQUENO',
     esterilizado: true,
     vacunado: true,
-    imagen: '/img/dog2.jpg'
+    imagen: '/img/cat2.webp'
   },
   {
     id: 5,
@@ -143,7 +143,7 @@ export default function Pets() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-gray-300 flex items-center justify-center">
         <div className="text-center">
           <div className="relative w-32 h-32 mx-auto mb-6">
             <img
@@ -164,7 +164,7 @@ export default function Pets() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-200">
       <section className="relative w-full h-96 bg-gray-800">
         <img
           src="/img/puppy.jpg"
@@ -184,168 +184,178 @@ export default function Pets() {
         </div>
       </section>
 
-      <section className="py-6 bg-white shadow-md border-b border-gray-200 relative">
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-20 h-20 hidden lg:block z-10">
-          <img
-            src="/img/catSleeping.png"
-            alt="Gato durmiendo"
-            className="w-full h-full object-contain drop-shadow-xl"
-          />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap gap-4 items-center justify-center">
-            <select
-              onChange={(e) => handleFilterChange('sexo', e.target.value)}
-              className="px-5 py-3 rounded-lg border-2 border-gray-300 bg-white focus:border-orange-500 focus:outline-none font-medium text-gray-700 transition-colors"
-              value={filters.sexo}
-            >
-              <option value="">Todos los sexos</option>
-              <option value="MACHO">Macho</option>
-              <option value="HEMBRA">Hembra</option>
-            </select>
-
-            <select
-              onChange={(e) => handleFilterChange('tamano', e.target.value)}
-              className="px-5 py-3 rounded-lg border-2 border-gray-300 bg-white focus:border-orange-500 focus:outline-none font-medium text-gray-700 transition-colors"
-              value={filters.tamano}
-            >
-              <option value="">Todos los tamaños</option>
-              <option value="PEQUENO">Pequeño</option>
-              <option value="MEDIANO">Mediano</option>
-              <option value="GRANDE">Grande</option>
-            </select>
-
-            <select
-              onChange={(e) => handleFilterChange('esterilizado', e.target.value)}
-              className="px-5 py-3 rounded-lg border-2 border-gray-300 bg-white focus:border-orange-500 focus:outline-none font-medium text-gray-700 transition-colors"
-              value={filters.esterilizado}
-            >
-              <option value="">Esterilización</option>
-              <option value="true">Esterilizado</option>
-              <option value="false">No esterilizado</option>
-            </select>
-
-            <select
-              onChange={(e) => handleFilterChange('vacunado', e.target.value)}
-              className="px-5 py-3 rounded-lg border-2 border-gray-300 bg-white focus:border-orange-500 focus:outline-none font-medium text-gray-700 transition-colors"
-              value={filters.vacunado}
-            >
-              <option value="">Vacunación</option>
-              <option value="true">Vacunado</option>
-              <option value="false">No vacunado</option>
-            </select>
-
-            {(filters.sexo || filters.tamano || filters.esterilizado || filters.vacunado) && (
-              <button
-                onClick={() => setFilters({ sexo: '', tamano: '', esterilizado: '', vacunado: '' })}
-                className="px-5 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors"
-              >
-                Limpiar filtros
-              </button>
-            )}
-          </div>
-
-          <div className="mt-4 text-center">
-            <span className="text-gray-600 font-medium">
-              {filteredPets.length} {filteredPets.length === 1 ? 'mascota disponible' : 'mascotas disponibles'}
-            </span>
-          </div>
-        </div>
-      </section>
-
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-6">
-          {filteredPets.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-2xl font-semibold text-gray-700 mb-4">
-                No se encontraron mascotas con estos filtros
-              </p>
-              <button
-                onClick={() => setFilters({ sexo: '', tamano: '', esterilizado: '', vacunado: '' })}
-                className="px-8 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors"
-              >
-                Ver todas las mascotas
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredPets.map((pet) => (
-                <div
-                  key={pet.id}
-                  className="group bg-white rounded-lg overflow-hidden shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-gray-200"
-                >
-                  <div className="relative h-64 bg-gray-100 overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <aside className="lg:col-span-1">
+              <div className="bg-gray-100 border border-gray-300 rounded-xl p-6 sticky top-20">
+                <div className="relative">
+                  <div className="absolute -top-19 -right-4 w-20 h-20 hidden lg:block z-10">
                     <img
-                      src={pet.imagen}
-                      alt={pet.nombre}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      src="/img/catSleeping.png"
+                      alt="Gato durmiendo"
+                      className="w-full h-full object-contain drop-shadow-xl"
                     />
                   </div>
 
-                  <div className="p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <h3 className="text-2xl font-bold text-gray-900">
-                        {pet.nombre}
-                      </h3>
-                      <img
-                        src={pet.sexo === 'MACHO' ? '/img/sexoMasculino.png' : '/img/sexoFemenino.png'}
-                        alt={pet.sexo}
-                        className="w-8 h-8 object-contain"
-                      />
-                    </div>
+                  <h2 className="text-lg font-semibold text-gray-900 mb-6">
+                    Filtros
+                  </h2>
 
-                    <div className="space-y-2 mb-4 text-gray-600">
-                      <p><span className="font-semibold">Raza:</span> {pet.raza}</p>
-                      <p><span className="font-semibold">Edad:</span> {pet.edad} {pet.edad === 1 ? 'año' : 'años'}</p>
-                      <p><span className="font-semibold">Tamaño:</span> {pet.tamano}</p>
-                    </div>
-
-                    <p className="text-gray-700 text-sm mb-4 line-clamp-2">
-                      {pet.descripcion}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {pet.esterilizado && (
-                        <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-md text-xs font-semibold border border-emerald-200">
-                          Esterilizado
-                        </span>
-                      )}
-                      {pet.vacunado && (
-                        <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-md text-xs font-semibold border border-amber-200">
-                          Vacunado
-                        </span>
-                      )}
-                    </div>
-
-                    <button
-                      onClick={(e) => handleAdoptClick(pet, e)}
-                      className="group/btn relative w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors overflow-hidden"
+                  <div className="space-y-4">
+                    <select
+                      value={filters.sexo}
+                      onChange={(e) => handleFilterChange('sexo', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-orange-500 focus:outline-none"
                     >
-                      <span className="relative z-10">Solicitar Adopción</span>
-                      <img
-                        src="/img/KindCat.png"
-                        alt="Gatito"
-                        className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 object-contain opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-20"
-                      />
-                    </button>
+                      <option value="">Sexo</option>
+                      <option value="MACHO">Macho</option>
+                      <option value="HEMBRA">Hembra</option>
+                    </select>
+
+                    <select
+                      value={filters.tamano}
+                      onChange={(e) => handleFilterChange('tamano', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-orange-500 focus:outline-none"
+                    >
+                      <option value="">Tamaño</option>
+                      <option value="PEQUENO">Pequeño</option>
+                      <option value="MEDIANO">Mediano</option>
+                      <option value="GRANDE">Grande</option>
+                    </select>
+
+                    <select
+                      value={filters.esterilizado}
+                      onChange={(e) => handleFilterChange('esterilizado', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-orange-500 focus:outline-none"
+                    >
+                      <option value="">Esterilización</option>
+                      <option value="true">Esterilizado</option>
+                      <option value="false">No esterilizado</option>
+                    </select>
+
+                    <select
+                      value={filters.vacunado}
+                      onChange={(e) => handleFilterChange('vacunado', e.target.value)}
+                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:border-orange-500 focus:outline-none"
+                    >
+                      <option value="">Vacunación</option>
+                      <option value="true">Vacunado</option>
+                      <option value="false">No vacunado</option>
+                    </select>
+
+                    {(filters.sexo || filters.tamano || filters.esterilizado || filters.vacunado) && (
+                      <button
+                        onClick={() => setFilters({ sexo: '', tamano: '', esterilizado: '', vacunado: '' })}
+                        className="w-full border border-orange-500 text-orange-600 py-2.5 rounded-md hover:bg-orange-50 transition"
+                      >
+                        Limpiar filtros
+                      </button>
+                    )}
+                  </div>
+
+                  <div className="mt-6 pt-6 border-t border-gray-200 text-center">
+                    <span className="text-gray-600 font-medium">
+                      {filteredPets.length} {filteredPets.length === 1 ? 'mascota disponible' : 'mascotas disponibles'}
+                    </span>
                   </div>
                 </div>
-              ))}
+              </div>
+            </aside>
+
+            <div className="lg:col-span-3">
+              {filteredPets.length === 0 ? (
+                <div className="text-center py-20">
+                  <p className="text-2xl font-semibold text-gray-700 mb-4">
+                    No se encontraron mascotas con estos filtros
+                  </p>
+                  <button
+                    onClick={() => setFilters({ sexo: '', tamano: '', esterilizado: '', vacunado: '' })}
+                    className="px-8 py-3 bg-orange-600 text-white rounded-lg font-medium hover:bg-orange-700 transition-colors"
+                  >
+                    Ver todas las mascotas
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                  {filteredPets.map((pet) => (
+                    <div
+                      key={pet.id}
+                      className="group bg-gray-100 rounded-lg overflow-hidden shadow-md hover:shadow-2xl hover:scale-105 transition-all duration-300 border border-gray-200"
+                    >
+                      <div className="relative h-64 bg-gray-100 overflow-hidden">
+                        <img
+                          src={pet.imagen}
+                          alt={pet.nombre}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="p-5">
+                        <div className="flex items-center justify-between mb-3">
+                          <h3 className="text-2xl font-bold text-gray-900">
+                            {pet.nombre}
+                          </h3>
+                          <img
+                            src={pet.sexo === 'MACHO' ? '/img/sexoMasculino.png' : '/img/sexoFemenino.png'}
+                            alt={pet.sexo}
+                            className="w-8 h-8 object-contain"
+                          />
+                        </div>
+
+                        <div className="space-y-2 mb-4 text-gray-600">
+                          <p><span className="font-semibold">Raza:</span> {pet.raza}</p>
+                          <p><span className="font-semibold">Edad:</span> {pet.edad} {pet.edad === 1 ? 'año' : 'años'}</p>
+                          <p><span className="font-semibold">Tamaño:</span> {pet.tamano}</p>
+                        </div>
+
+                        <p className="text-gray-700 text-sm mb-4 line-clamp-2">
+                          {pet.descripcion}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {pet.esterilizado && (
+                            <span className="bg-emerald-100 text-emerald-800 px-3 py-1 rounded-md text-xs font-semibold border border-emerald-200">
+                              Esterilizado
+                            </span>
+                          )}
+                          {pet.vacunado && (
+                            <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-md text-xs font-semibold border border-amber-200">
+                              Vacunado
+                            </span>
+                          )}
+                        </div>
+
+                        <button
+                          onClick={(e) => handleAdoptClick(pet, e)}
+                          className="group/btn relative w-full bg-orange-600 text-white py-3 rounded-lg font-semibold hover:bg-orange-700 transition-colors overflow-hidden"
+                        >
+                          <span className="relative z-10">Solicitar Adopción</span>
+                          <img
+                            src="/img/KindCat.png"
+                            alt="Gatito"
+                            className="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 object-contain opacity-0 group-hover/btn:opacity-100 transition-opacity duration-300 z-20"
+                          />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
+
+          </div>
         </div>
       </section>
 
-      <section className="py-8 bg-white border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 flex justify-center">
-          <img
-            src="/img/catSleeping.png"
-            alt="Gato descansando"
-            className="w-24 h-24 object-contain drop-shadow-xl opacity-70"
-          />
-        </div>
-      </section>
+      <div className="max-w-5xl mx-auto px-2 flex">
+        <img
+          src="/img/KindCat.png"
+          alt="Gato descansando"
+          className="w-24 h-24 object-contain drop-shadow-xl opacity-90 translate-y-6"
+        />
+      </div>
 
       {selectedPet && (
         <div
@@ -372,7 +382,6 @@ export default function Pets() {
                 className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center group"
               >
                 <span className="text-white hover:text-gray-200 text-2xl font-bold">×</span>
-
               </button>
               <h2 className="text-3xl font-bold mb-2">Solicitud de Adopción</h2>
               <p className="text-lg">Completá el formulario para adoptar a {selectedPet.nombre}</p>
