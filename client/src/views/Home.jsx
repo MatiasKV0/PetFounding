@@ -43,7 +43,6 @@ function Home() {
 
   return (
     <div className="w-full bg-gray-100">
-      {/* HERO */}
       <section className="relative w-full min-h-screen">
         <img
           src="/img/puppy.jpg"
@@ -81,7 +80,6 @@ function Home() {
         </div>
       </section>
 
-      {/* ADOPCIÓN - Gris 50 */}
       <section className="py-20 bg-gray-50 relative">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="relative">
@@ -139,7 +137,6 @@ function Home() {
         </div>
       </section>
 
-      {/* VISITAS - Gris 100 */}
       <section className="py-20 bg-gray-100 relative">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div
@@ -196,7 +193,6 @@ function Home() {
         </div>
       </section>
 
-      {/* COLABORÁ - Mismo gris que ADOPCIÓN (gray-50) */}
       <section className="py-20 bg-gray-50 text-gray-900 relative overflow-hidden border-t-2 border-gray-200/50">
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-96 h-96 bg-emerald-300 rounded-full blur-3xl"></div>

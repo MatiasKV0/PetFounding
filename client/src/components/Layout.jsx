@@ -16,7 +16,6 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
-      {/* Header - Gris oscuro profesional */}
       <header className="sticky top-0 z-50 w-full bg-gray-800 border-b border-gray-700 shadow-xl">
         <div className="container mx-auto px-4 h-16 flex items-center justify-between">
           <Link
@@ -99,16 +98,13 @@ export default function Layout() {
         </div>
       </header>
 
-      {/* Main Content - SIN fondo, cada página decide */}
       <main className="flex-grow">
         <Outlet />
       </main>
 
-      {/* Footer - Gris oscuro profesional */}
       <footer className="bg-gray-800 border-t border-gray-700 pt-12 pb-8">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {/* Columna 1 - Sobre PetFounding */}
             <div>
               <h3 className="text-lg font-bold text-white mb-4">
                 PetFounding
@@ -119,7 +115,6 @@ export default function Layout() {
               </p>
             </div>
 
-            {/* Columna 2 - Comunidad */}
             <div className="flex flex-col gap-2">
               <h4 className="font-semibold text-white mb-2">Comunidad</h4>
               <Link
@@ -142,7 +137,6 @@ export default function Layout() {
               </Link>
             </div>
 
-            {/* Columna 3 - Desarrolladores */}
             <div className="flex flex-col gap-2">
               <h4 className="font-semibold text-white mb-2">Desarrolladores</h4>
               <a
@@ -154,7 +148,7 @@ export default function Layout() {
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                 </svg>
-                Camila Lázaro Ávila
+                Camila Agustina Lázaro Ávila
               </a>
               <a
                 href="https://www.linkedin.com/in/matias-nicolas-villan/"
@@ -170,7 +164,6 @@ export default function Layout() {
             </div>
           </div>
 
-          {/* Footer Bottom */}
           <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-xs text-gray-500">
               © {new Date().getFullYear()} PetFounding. Hecho con ❤️ para los
