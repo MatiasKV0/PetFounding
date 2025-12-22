@@ -16,87 +16,79 @@ export default function Layout() {
 
   return (
     <div className="flex flex-col min-h-screen font-sans">
-      <header className="sticky top-0 z-50 w-full bg-gray-800 border-b border-gray-700 shadow-xl">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <Link
-            to="/"
-            className="text-2xl font-bold text-white flex items-center gap-2 hover:text-gray-300 transition-colors"
-          >
-            <span className="flex items-center">
-              <img
-                src="/img/image.png"
-                alt="PetFounding logo"
-                className="w-12 h-12"
-              />
-            </span>
-            PetFounding
-          </Link>
+   <header className="sticky top-0 z-50 w-full bg-gray-800 border-b border-gray-700 shadow-xl">
+     <div className="container mx-auto px-4 h-16 flex items-center justify-between">
 
-          <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
-            <Link
-              to="/"
-              className="hover:text-white transition-colors"
-            >
-              Inicio
-            </Link>
-            <Link
-              to="/pets"
-              className="hover:text-white transition-colors"
-            >
-              Mascotas
-            </Link>
-            <Link
-              to="/shelters"
-              className="hover:text-white transition-colors"
-            >
-              Refugios
-            </Link>
+       <Link
+         to="/"
+         className="text-2xl font-bold text-white flex items-center gap-2 hover:text-gray-300 transition-colors"
+       >
+         <img src="/img/image.png" alt="PetFounding logo" className="w-12 h-12" />
+         PetFounding
+       </Link>
 
-            {isAuthenticated && userRole === "shelter" && (
-              <>
-                <Link
-                  to="/my-pets"
-className="text-orange-600 font-semibold border-l pl-8 border-gray-600 hover:text-orange-500 transition-colors"
-                >
-                  Panel Refugio
-                </Link>
-                <Link
-                  to="/create-pet"
-                  className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
-                >
-                  Publicar Mascota
-                </Link>
-              </>
-            )}
-          </nav>
+       <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+         <Link to="/" className="hover:text-white transition-colors">Inicio</Link>
+         <Link to="/pets" className="hover:text-white transition-colors">Mascotas</Link>
+         <Link to="/shelters" className="hover:text-white transition-colors">Refugios</Link>
 
-          <div className="flex items-center gap-4">
-            {isAuthenticated ? (
-              <div className="flex items-center gap-3">
-                <Link
-                  to="/profile"
-                  className="text-sm font-medium text-gray-300 border-b border-transparent hover:border-blue-400 hover:text-white transition-colors"
-                >
-                  Mi Perfil
-                </Link>
-                <button
-                  onClick={handleLogout}
-                  className="text-sm text-red-400 hover:bg-red-900/30 px-3 py-1.5 rounded-md transition-colors"
-                >
-                  Salir
-                </button>
-              </div>
-            ) : (
-              <Link
-                to="/login"
-className="text-orange-600 font-semibold border-l pl-8 border-gray-600 hover:text-orange-500 transition-colors"
-              >
-                Iniciar Sesión
-              </Link>
-            )}
-          </div>
-        </div>
-      </header>
+         {isAuthenticated && userRole === "shelter" && (
+           <>
+             <Link
+               to="/my-pets"
+               className="text-orange-600 font-semibold border-l pl-8 border-gray-600 hover:text-orange-500 transition-colors"
+             >
+               Panel Refugio
+             </Link>
+             <Link
+               to="/create-pet"
+               className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-all shadow-lg"
+             >
+               Publicar Mascota
+             </Link>
+           </>
+         )}
+       </nav>
+
+       <div className="flex items-center gap-4">
+
+         <Link
+           to="/donations"
+           className="bg-orange-600 text-white px-5 py-2 rounded-full
+                      text-sm font-semibold shadow-md
+                      hover:bg-orange-700 hover:scale-105
+                      transition-all duration-300"
+         >
+           Doná ahora
+         </Link>
+
+         {isAuthenticated ? (
+           <div className="flex items-center gap-3">
+             <Link
+               to="/profile"
+               className="text-sm font-medium text-gray-300 hover:text-white transition-colors"
+             >
+               Mi Perfil
+             </Link>
+             <button
+               onClick={handleLogout}
+               className="text-sm text-red-400 hover:bg-red-900/30 px-3 py-1.5 rounded-md transition-colors"
+             >
+               Salir
+             </button>
+           </div>
+         ) : (
+           <Link
+             to="/login"
+             className="text-orange-600 font-semibold border-l pl-6 border-gray-600 hover:text-orange-500 transition-colors"
+           >
+             Iniciar Sesión
+           </Link>
+         )}
+       </div>
+
+     </div>
+   </header>
 
       <main className="flex-grow">
         <Outlet />

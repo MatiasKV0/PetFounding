@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './style.css';
 
-//views
 import Home from './views/Home.jsx';
 import UserProfile from './views/Profile.jsx';
 import Pets from './views/pets/Pets.jsx';
 import DetailsPets from './views/pets/Details.jsx';
 import Shelter from './views/shelter/Shelter.jsx';
 import DetailsShelter from './views/shelter/Details.jsx';
+import Donations from './views/shelter/Donations.jsx';
 
 //auth views
 import Register from './views/auth/Register.jsx';
@@ -21,7 +21,7 @@ import AdoptionQueue from './views/admin/AdoptionQueue.jsx';
 //components
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import AdminRoute from './components/AdminRoute.jsx';
-import Layout from './components/Layout.jsx'; 
+import Layout from './components/Layout.jsx';
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,7 @@ const router = createBrowserRouter([
       { path: 'pets/:id', element: <DetailsPets /> },
       { path: 'shelters', element: <Shelter /> },
       { path: 'shelters/:id', element: <DetailsShelter /> },
+      { path: 'donations', element: <Donations /> },
       { path: 'login', element: <Login /> },
       { path: 'register', element: <Register /> },
       
