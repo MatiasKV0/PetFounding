@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './style.css';
 
 import Home from './views/Home.jsx';
-import UserProfile from './views/Profile.jsx';
 import Pets from './views/pets/Pets.jsx';
 import DetailsPets from './views/pets/Details.jsx';
 import Shelter from './views/shelter/Shelter.jsx';
@@ -12,6 +11,7 @@ import Donations from './views/shelter/Donations.jsx';
 //auth views
 import Register from './views/auth/Register.jsx';
 import Login from './views/auth/Login.jsx';
+import UserProfile from './views/auth/Profile.jsx';
 
 //admin views
 import AdminDashboard from './views/admin/Dashboard.jsx';
